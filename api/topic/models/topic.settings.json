@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topics",
+  "info": {
+    "name": "topic"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "page.content"
+      ]
+    },
+    "section": {
+      "model": "section",
+      "via": "topics"
+    }
+  }
+}
